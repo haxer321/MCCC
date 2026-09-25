@@ -2,8 +2,6 @@
 MCC.LoadBot(new AutoBalanceScript());
 //MCCScript Extensions
 
-using System.Text.RegularExpressions;
-
 public class AutoBalanceScript : ChatBot
 {
     public override void Initialize()
@@ -14,7 +12,7 @@ public class AutoBalanceScript : ChatBot
     public override void GetText(string text)
     {
         string cleanText = GetVerbatim(text);
-        Match match = Regex.Match(cleanText, @"You have \$\s*([\d,]+)");
+        System.Text.RegularExpressions.Match match = System.Text.RegularExpressions.Regex.Match(cleanText, @"You have \$\s*([\d,]+)");
 
         if (match.Success)
         {
